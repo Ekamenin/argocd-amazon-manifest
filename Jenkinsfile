@@ -1,7 +1,7 @@
 node {
     def app
     
-    env.IMAGE = 'ekamenin/demo-app-repo12'
+    env.IMAGE = 'ekamenin/amazon'
 
     stage('Clone repository') {
              git branch: 'main', url: 'https://github.com/Ekamenin/argocd-amazon-manifest.git'  
@@ -10,9 +10,9 @@ node {
     stage('Update GIT') {
             script {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    withCredentials([usernamePassword(credentialsId: 'Emmanuel-Github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    withCredentials([usernamePassword(credentialsId: 'kameni-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         //script {def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')}
-                        //script  {def IMAGE='ekamenin/demo-app-repo12:latest'}
+                        //script  {def IMAGE='ekamenin/amazon'}
                         sh "git config user.email kamenipatcheko@gmail.com"
                         sh "git config user.name Ekamenin"
                         //sh "git switch master"
