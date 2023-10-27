@@ -23,7 +23,7 @@ spec:
     spec: # Pod spec
       containers:
       - name: amazon-container
-        image: ekamenin/demo-app-repo12:latest
+        image: ekamenin/amazon:latest
         ports:
         - containerPort: 3000
         
